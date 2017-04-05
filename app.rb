@@ -36,7 +36,7 @@ class TermFrequency
     counter = 0
     @words_array.each do |word|
       if word == word_input
-        counter++
+        counter += 1
       end
     end
     return counter
