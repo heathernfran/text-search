@@ -28,7 +28,6 @@ class TermFrequency
         end
       end
     end
-    puts @words_array.length
     return @words_array
   end
 
