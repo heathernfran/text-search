@@ -1,3 +1,4 @@
 load 'app.rb'
 
-get_files("corpus")
+tf = TermFrequency.new
+tf.get_files("corpus")
