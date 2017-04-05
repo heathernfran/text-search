@@ -31,6 +31,7 @@ class TermFrequency
     return @words_array
   end
 
+  # Get the number of times a word is in the array
   def count_word(word_input)
     counter = 0
     @words_array.each do |word|
