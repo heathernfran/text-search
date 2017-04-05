@@ -34,11 +34,12 @@ class TermFrequency
 
   def count_word(word_input)
     counter = 0
-    words_array.each do |word|
+    @words_array.each do |word|
       if word == word_input
         counter++
       end
     end
+    return counter
   end
 
 end
