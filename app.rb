@@ -37,16 +37,16 @@ class TermFrequency
 
   # Get the number of times a word is in a chapter (hash key)
   def count_word(word_input)
-    counter = 0
     @words_hash.each do |chapter, words|
+      @word_counter = 0
       words.each do |word|
         if word == word_input
-          counter += 1
+          @word_counter += 1
         end
       end
-      puts "Chapter: #{chapter} - Word count: #{counter}"
+      puts "Chapter: #{chapter} - Word count: #{@word_counter}"
     end
-    return counter
+    return @word_counter
   end
 
 end
