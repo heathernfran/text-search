@@ -44,6 +44,7 @@ class TermFrequency
           counter += 1
         end
       end
+      puts "Chapter: #{chapter} - Word count: #{counter}"
     end
     return counter
   end
