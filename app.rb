@@ -1,5 +1,5 @@
 # Class for term frequency (TF) score
-# for words in a given corpus (document).
+# for words in a given corpus (documents).
 class TermFrequency
 
   def initialize
@@ -35,7 +35,7 @@ class TermFrequency
     return @words_hash
   end
 
-  # Get the number of times a word is in the hash
+  # Get the number of times a word is in a chapter (hash key)
   def count_word(word_input)
     counter = 0
     @words_hash.each do |chapter, words|
