@@ -5,6 +5,7 @@ class TermFrequency
   def initialize
     # Store all words in a corpus
     @words_hash = Hash.new
+    @chapter_number = 0
   end
 
   # Find all files in a given directory
@@ -28,7 +29,8 @@ class TermFrequency
           temp_array.push(word)
         end
       end
-      @words_hash[:chapter] = temp_array
+      @words_hash[@chapter_number] = temp_array
+      @chapter_number += 1
     end
     return @words_hash
   end
@@ -36,10 +38,11 @@ class TermFrequency
   # Get the number of times a word is in the hash
   def count_word(word_input)
     counter = 0
-    # highest_tf
-    @words_hash[:chapter].each do |word|
-      if word == word_input
-        counter += 1
+    @words_hash.each do |chapter, words|
+      words.each do |word|
+        if word == word_input
+          counter += 1
+        end
       end
     end
     return counter
