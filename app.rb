@@ -53,7 +53,7 @@ class TermFrequency
         puts "New largest chapter - #{chapter}, words - #{largest_word_count}"
       end
     end
-    return @largest_chapter_number
+    return @largest_chapter_number + 1
   end
 
 end
