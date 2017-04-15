@@ -6,6 +6,7 @@ class TermFrequency
     # Store all words in a corpus
     @words_hash = Hash.new
     @chapter_number = 0
+    @largest_chapter_number = 0
   end
 
   # Find all files in a given directory
@@ -48,10 +49,11 @@ class TermFrequency
       # Compare last chapter, to find larger word count
       if @word_counter > largest_word_count
         largest_word_count = @word_counter
+        @largest_chapter_number = chapter
         puts "New largest chapter - #{chapter}, words - #{largest_word_count}"
       end
     end
-    return largest_word_count
+    return @largest_chapter_number
   end
 
 end
