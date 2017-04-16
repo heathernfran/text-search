@@ -40,7 +40,7 @@ class TermFrequency
   def count_word(word_input)
     @words_hash.each do |chapter, words|
       largest_word_count = 0
-      @word_counter = 0
+      @word_counter = 0.0
       words.each do |word|
         if word == word_input
           @word_counter += 1
@@ -48,7 +48,7 @@ class TermFrequency
       end
       if @word_counter > largest_word_count
         largest_word_count = @word_counter
-        return @word_counter
+        return @word_counter / words.length
       end
     end
   end
