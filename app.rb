@@ -38,22 +38,29 @@ class TermFrequency
 
   # Get the number of times a word is in a chapter (hash key)
   def count_word(word_input)
-    largest_word_count = 0
     @words_hash.each do |chapter, words|
+      largest_word_count = 0
       @word_counter = 0
       words.each do |word|
         if word == word_input
           @word_counter += 1
         end
       end
-      # Compare last chapter, to find larger word count
       if @word_counter > largest_word_count
         largest_word_count = @word_counter
-        @largest_chapter_number = chapter
-        puts "New largest chapter - #{chapter}, words - #{largest_word_count}"
+        return @word_counter
       end
     end
-    return @largest_chapter_number + 1
+  end
+
+  # Compare last chapter, to find larger word count
+  def compare_chapters(word_counter, largest, current_chapter)
+    if word_counter > largest
+      largest = word_counter
+      @largest_chapter_number = current_chapter
+      return @largest_chapter_number
+      # puts "New largest chapter - #{current_chapter}, words - #{largest}"
+    end
   end
 
 end
