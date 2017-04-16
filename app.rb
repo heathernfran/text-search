@@ -6,7 +6,7 @@ class TermFrequency
     # Store all words in a corpus
     @words_hash = Hash.new
     @chapter_number = 0
-    @largest_chapter_number = 0
+    @largest_chapter = 0
   end
 
   # Find all files in a given directory
@@ -39,28 +39,24 @@ class TermFrequency
   # Get the number of times a word is in a chapter (hash key)
   def count_word(word_input)
     @words_hash.each do |chapter, words|
+      word_counter = 0
       largest_word_count = 0
-      @word_counter = 0.0
       words.each do |word|
         if word == word_input
-          @word_counter += 1
+          word_counter += 1
         end
       end
-      if @word_counter > largest_word_count
-        largest_word_count = @word_counter
-        return @word_counter / words.length
+      if word_counter > largest_word_count
+        largest_word_count = word_counter
+        @largest_chapter = chapter
+        return largest_word_count / words.length
       end
     end
   end
 
   # Compare last chapter, to find larger word count
-  def compare_chapters(word_counter, largest, current_chapter)
-    if word_counter > largest
-      largest = word_counter
-      @largest_chapter_number = current_chapter
-      return @largest_chapter_number
-      # puts "New largest chapter - #{current_chapter}, words - #{largest}"
-    end
+  def get_chapter
+    return @largest_chapter + 1
   end
 
 end
